@@ -1,4 +1,4 @@
-# ✅ Ex.No.6 – Development of Python Code Compatible with Multiple AI Tools
+#  Ex.No.6 – Development of Python Code Compatible with Multiple AI Tools
 
 ```
  Date:20/5/2025
@@ -24,6 +24,9 @@ Write and implement Python code that integrates with multiple AI tools to automa
 ## 🧠 Explanation
 This experiment explores how to develop Python code that interacts with multiple AI APIs and evaluates the persona prompting technique. The persona chosen is that of a *Programmer*, and various Python tasks were given as prompts across different AI tools. Outputs were analyzed in terms of correctness, clarity, efficiency, and learning support. This comparison allows users to determine the best AI tool for specific programming-related problems and scenarios.
 
+
+🚀Live Link Hosted through Github: https://keerthi-vasan-adhithan.github.io/Ex.03-Todo-Application/
+ 
 ---
 
 ## ✅ Subtopics with Detailed Prompt Analysis
@@ -86,18 +89,8 @@ ChatGPT excels in cross-language conversion. Claude offers good translation but 
 
 ---
 
-### 6. Generate Python Quiz App
-- **Prompt:** Generate a Python CLI quiz app.
-- **Claude Output:** Provided question handling and score logic.
-- **ChatGPT Output:** Neat structure with score tracking.
-- **Gemini Output:** No input validation.
 
-**Answer:**  
-For CLI apps, ChatGPT's design is reusable. Claude offers good structure with logical flow. Gemini’s version is minimal and suitable only for simple tasks.
-
----
-
-### 7. Compare Two Algorithms in Python
+### 6. Compare Two Algorithms in Python
 - **Prompt:** Compare Bubble Sort and Merge Sort in code and time.
 - **ChatGPT Output:** Code + time complexity explained.
 - **Claude Output:** Focused more on theory.
@@ -108,7 +101,7 @@ ChatGPT gives balanced insights. Claude provides theoretical background, good fo
 
 ---
 
-### 8. Add Comments to Code
+### 7. Add Comments to Code
 - **Prompt:** Add comments to a given code.
 - **ChatGPT Output:** Accurate and helpful.
 - **Claude Output:** More educational comments.
@@ -119,53 +112,50 @@ Claude is best for learning through comments. ChatGPT focuses on concise and nec
 
 ---
 
-### 9. Generate Regex Pattern
-- **Prompt:** Write a regex for email validation.
-- **ChatGPT Output:** `^[\w\.-]+@[\w\.-]+\.\w{2,4}$`
-- **Claude Output:** Added explanation for each part.
-- **Gemini Output:** Similar output.
+
+## Real Time Implementation:
+
+### 8. Create a Flask Web App
+- **Prompt:** Build a Flask app that calculates the BMI (Body Mass Index) using Python3.
 
 **Answer:**  
-All tools perform well, but Claude is helpful for learning regex by explaining it in depth.
+![image](https://github.com/user-attachments/assets/9560951d-b57f-45a1-bedf-08993d15db56)
 
----
+app.py:
+```py
+from flask import Flask, render_template, request, redirect, url_for
 
-### 10. Explain Try-Except Block
-- **Prompt:** Explain try-except in Python with example.
-- **ChatGPT Output:** Clear explanation.
-- **Claude Output:** Better suited for beginners.
-- **Gemini Output:** Provided broader use-cases.
+app = Flask(__name__)
 
-**Answer:**  
-For conceptual clarity, Claude works best. Gemini expands on use cases, while ChatGPT provides clean syntax-focused help.
+# In-memory task list
+tasks = []
 
----
+@app.route('/')
+def index():
+    return render_template('index.html', tasks=tasks)
 
-### 11. Generate Python Code for File Handling
-- **Prompt:** Write Python code to read a text file and count word occurrences.
+@app.route('/add', methods=['POST'])
+def add():
+    task = request.form.get('task')
+    if task:
+        tasks.append(task)
+    return redirect(url_for('index'))
 
-**Answer:**  
-ChatGPT gives efficient `collections.Counter` usage. Claude is more tutorial-like. Gemini adds file validation. ChatGPT wins for developers; Claude wins for beginners.
+@app.route('/delete/<int:task_id>')
+def delete(task_id):
+    if 0 <= task_id < len(tasks):
+        tasks.pop(task_id)
+    return redirect(url_for('index'))
 
----
+if __name__ == '__main__':
+    app.run(debug=True)
 
-### 12. Generate Python GUI using Tkinter
-- **Prompt:** Create a GUI app with Tkinter to add two numbers.
 
-**Answer:**  
-Claude uses detailed layout explanation. ChatGPT gives ready-to-run code. Gemini adds error handling. Gemini suits beginners needing validation.
+```
 
----
+🚀Live Link Hosted through Github: https://keerthi-vasan-adhithan.github.io/Ex.03-Todo-Application/
 
-### 13. Create a Flask Web App
-- **Prompt:** Build a Flask app that takes a number and returns its square.
-
-**Answer:**  
-ChatGPT uses templates well. Claude uses inline HTML. Gemini provides deployment suggestions. ChatGPT is optimal for production.
-
----
-
-### 14. Explain Python Decorators
+### 9. Explain Python Decorators
 
 | Tool     | Example Included | Concept Clarity | Real-World Use |
 |----------|------------------|-----------------|----------------|
@@ -180,53 +170,6 @@ Claude excels with deep conceptual understanding. ChatGPT is minimal. Gemini off
 
 ---
 
-### 15. Convert CSV to JSON using Python
-- **Prompt:** Convert a CSV file into JSON format.
-
-**Answer:**  
-ChatGPT gives quick, effective code. Claude educates with step-by-step detail. Gemini adds error handling. Developers prefer ChatGPT; learners prefer Claude.
-
----
-
-### 16. Python Code for Sending Emails
-- **Prompt:** Send an email using Python and SMTP.
-
-**Answer:**  
-ChatGPT gives working code. Gemini offers security tips and Gmail tweaks. Claude explains setup clearly. Gemini is best for safety and real-world use.
-
----
-
-### 17. Basic Data Visualization using Matplotlib
-- **Prompt:** Plot a bar chart showing student marks.
-
-**Answer:**  
-Gemini adds `tight_layout()` for clarity. Claude gives full explanation. ChatGPT is concise. Gemini is visually better.
-
----
-
-### 18. Use of List Comprehension
-- **Prompt:** Generate even numbers from 1 to 100 using list comprehension.
-
-**Answer:**  
-All tools provide correct code. Claude explains both loop and list version. Ideal for learning differences. ChatGPT is preferred for speed.
-
----
-
-### 19. Implement Class and Object in Python
-- **Prompt:** Create a class "Student" with name, age, and display method.
-
-**Answer:**  
-Claude’s example includes multiple objects and method calls. Gemini adds input checking. ChatGPT gives syntactically clean class. Claude is most educative.
-
----
-
-### 20. Explain and Code Recursion in Python
-- **Prompt:** Write a recursive factorial function.
-
-**Answer:**  
-Claude explains the call stack best. ChatGPT provides runnable logic. Gemini adds exception handling. Claude stands out for teaching recursion.
-
----
 
 ## 📊 Summary Table – Best AI Tool by Subtopic
 
